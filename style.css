@@ -1,0 +1,56 @@
+body {
+    background: rgb(43, 248, 43);
+}
+h1 {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+}
+h5 {
+    text-align: center;
+    
+}
+img {
+    position: absolute;
+    width: 500px;
+    top: 90px;
+    right: 0px;
+    bottom: 0px;
+    left: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div {
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    top: 57%;
+    left: 40%;
+    
+}
+input {
+    position: absolute;
+    width: 150px;
+    top: 62%;
+    left: 45%;
+}
+.time {
+    position: absolute;
+    text-align: center;
+    top: 65%;
+    left: 620px;
+}
+.A {
+    position: absolute;
+    text-align: center;
+    top: 72%;
+    left: 620px;
+}
+.B {
+    position: absolute;
+    text-align: center;
+    top: 77%;
+    left: 600px;
+}
