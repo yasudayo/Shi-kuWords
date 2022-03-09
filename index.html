@@ -23,12 +23,12 @@
 
 <script>
 let Question = document.getElementById('Question');
-const questions =  ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
+const questions =  ['2.png', '3.png', '4.png', '5.png', '6.png'];
 const quizNo = Math.floor(Math.random () * questions.length);
 Question.src = questions[quizNo];
 console.log(quizNo);
 
-const problems = ["顔のパーツを3つ探せ。", "天気を3つ探せ。", "県名を3つ探せ。", "体の一部を3つ探せ。", "鳥を4つ探せ。", 
+const problems = ["天気を3つ探せ。", "県名を3つ探せ。", "体の一部を3つ探せ。", "鳥を4つ探せ。", 
 "12星座を4つ探せ。"];
 if (quizNo === 0) {
     document.getElementById('problem').innerHTML = problems[0];
@@ -44,21 +44,6 @@ if (quizNo === 3) {
 }
 if (quizNo === 4) {
     document.getElementById('problem').innerHTML = problems[4];
-}
-if (quizNo === 5) {
-    document.getElementById('problem').innerHTML = problems[5];
-}
-if (quizNo === 6) {
-    document.getElementById('problem').innerHTML = problems[6];
-}
-if (quizNo === 7) {
-    document.getElementById('problem').innerHTML = problems[7];
-}
-if (quizNo === 8) {
-    document.getElementById('problem').innerHTML = problems[8];
-}
-if (quizNo === 9) {
-    document.getElementById('problem').innerHTML = problems[9];
 }
 
 let str;
@@ -87,7 +72,6 @@ function showSecond () {
 
     let seA = new Audio('maru.mp3');
     let seB = new Audio('batsu.mp3');
-    let answer0 = [];
     let answer1 = [];
     let answer2 = [];
     let answer3 = [];
@@ -99,35 +83,6 @@ function showSecond () {
     let answer = document.getElementById('answer');
     document.addEventListener('keydown', (event) => {
         if (event.keyCode === 13 && answer.value !== '' && quizNo === 0) {
-            if (answer.value === "くち" || answer.value === "はな" || answer.value === "まゆげ") {
-                answer0.push(answer.value);
-                A[0].innerHTML =　"・" + answer0[0];
-                const filter0 = [...new Set(answer0)];
-                console.log(filter0);
-                answer.value = '';
-                seA.play();
-                if (filter0.length === 2) {
-                    A[0].innerHTML = "・" + answer0[0] + "・" + answer0[1];
-                }
-                if (filter0.length === 3) {
-                    A[0].innerHTML = "・" + answer0[0] + "・" + answer0[1] + "・" + answer0[2];
-                }
-                if (filter0[0] === "はな" && filter0[1] === "まゆげ" && filter0[2] === "くち" ||
-                filter0[0] === "はな" && filter0[1] === "くち" && filter0[2] === "まゆげ" ||
-                filter0[0] === "くち" && filter0[1] === "はな" && filter0[2] === "まゆげ" ||
-                filter0[0] === "くち" && filter0[1] === "まゆげ" && filter0[2] === "はな" ||
-                filter0[0] === "まゆげ" && filter0[1] === "くち" && filter0[2] === "はな" ||
-                filter0[0] === "まゆげ" && filter0[1] === "はな" && filter0[2] === "くち") {
-                alert("GAMECLEAR");
-                document.location.reload();
-            }
-            }else {
-                answer.value = '';
-                seB.play();
-            }
-        }
-
-        if (event.keyCode === 13 && answer.value !== '' && quizNo === 1) {
             if (answer.value === "あられ" || answer.value === "あめ" || answer.value === "はれ") {
                 answer1.push(answer.value);
                 A[0].innerHTML =　"・" + answer1[0];
@@ -138,12 +93,7 @@ function showSecond () {
                 if (filter1.length === 2) {
                     A[0].innerHTML = "・" + answer1[0] + "・" + answer1[1];
                 }
-                if (filter1[0] === "あられ" && filter1[1] === "あめ" && filter1[2] === "はれ" ||
-                filter1[0] === "あられ" && filter1[1] === "はれ" && filter1[2] === "あめ" ||
-                filter1[0] === "はれ" && filter1[1] === "あられ" && filter1[2] === "あめ" ||
-                filter1[0] === "はれ" && filter1[1] === "あめ" && filter1[2] === "あられ" ||
-                filter1[0] === "あめ" && filter1[1] === "はれ" && filter1[2] === "あられ" ||
-                filter1[0] === "あめ" && filter1[1] === "あられ" && filter1[2] === "はれ") {
+                if (filter1.length === 3) {
                 alert("GAMECLEAR");
                 document.location.reload();
             }
@@ -153,7 +103,7 @@ function showSecond () {
                 seB.play();
             }
         }
-        if (event.keyCode === 13 && answer.value !== '' && quizNo === 2) {
+        if (event.keyCode === 13 && answer.value !== '' && quizNo === 1) {
             if (answer.value === "ぎふ" || answer.value === "とやま" || answer.value === "とちぎ") {
                 answer2.push(answer.value);
                 A[0].innerHTML =　"・" + answer2[0];
@@ -164,12 +114,7 @@ function showSecond () {
                     A[0].innerHTML = "・" + answer2[0] + "・" + answer2[1];
                 }
                 seA.play();
-                if (filter2[0] === "ぎふ" && filter2[1] === "とやま" && filter2[2] === "とちぎ" ||
-                filter2[0] === "ぎふ" && filter2[1] === "とちぎ" && filter2[2] === "とやま" ||
-                filter2[0] === "とやま" && filter2[1] === "ぎふ" && filter2[2] === "とちぎ" ||
-                filter2[0] === "とやま" && filter2[1] === "とちぎ" && filter2[2] === "ぎふ" ||
-                filter2[0] === "とちぎ" && filter2[1] === "とやま" && filter2[2] === "ぎふ" ||
-                filter2[0] === "とちぎ" && filter2[1] === "ぎふ" && filter2[2] === "とやま") {
+                if (filter2.length === 3) {
                 alert("GAMECLEAR");
                 document.location.reload();
             }
@@ -180,7 +125,7 @@ function showSecond () {
             }
         }
 
-        if (event.keyCode === 13 && answer.value !== '' && quizNo === 3) {
+        if (event.keyCode === 13 && answer.value !== '' && quizNo === 2) {
             if (answer.value === "あご" || answer.value === "あし" || answer.value === "くび") {
                 answer3.push(answer.value);
                 A[0].innerHTML =　"・" + answer3[0];
@@ -191,12 +136,7 @@ function showSecond () {
                     A[0].innerHTML = "・" + answer3[0] + "・" + answer3[1];
                 }
                 seA.play();
-                if (filter3[0] === "あご" && filter3[1] === "あし" && filter3[2] === "くび" ||
-                filter3[0] === "あご" && filter3[1] === "くび" && filter3[2] === "あし" ||
-                filter3[0] === "あし" && filter3[1] === "くび" && filter3[2] === "あご" ||
-                filter3[0] === "あし" && filter3[1] === "あご" && filter3[2] === "くび" ||
-                filter3[0] === "くび" && filter3[1] === "あし" && filter3[2] === "あご" ||
-                filter3[0] === "くび" && filter3[1] === "あご" && filter3[2] === "あし") {
+                if (filter3.length === 3) {
                 alert("GAMECLEAR");
                 document.location.reload();
             }
@@ -207,7 +147,7 @@ function showSecond () {
             }
         }
         
-        if (event.keyCode === 13 && answer.value !== '' && quizNo === 4) {
+        if (event.keyCode === 13 && answer.value !== '' && quizNo === 3) {
             if (answer.value === "つばめ" || answer.value === "すずめ" || answer.value === "わし" || 
             answer.value === "たか") {
                 answer4.push(answer.value);
@@ -222,33 +162,7 @@ function showSecond () {
                     A[0].innerHTML = "・" + answer4[0] + "・" + answer4[1]  + "・" + answer4[2];
                 }
                 seA.play();
-                if (filter4[0] === "つばめ" && filter4[1] === "すずめ" && filter4[2] === "わし" && filter4[3] === "たか" ||
-                filter4[0] === "つばめ" && filter4[1] === "すずめ" && filter4[2] === "たか" && filter4[3] === "わし" ||
-                filter4[0] === "つばめ" && filter4[1] === "わし" && filter4[2] === "すずめ" && filter4[3] === "たか" ||
-                filter4[0] === "つばめ" && filter4[1] === "たか" && filter4[2] === "すずめ" && filter4[3] === "わし" ||
-                filter4[0] === "つばめ" && filter4[1] === "たか" && filter4[2] === "わし" && filter4[3] === "すずめ" ||
-                filter4[0] === "つばめ" && filter4[1] === "わし" && filter4[2] === "たか" && filter4[3] === "すずめ" ||
-                
-                filter4[0] === "すずめ" && filter4[1] === "つばめ" && filter4[2] === "わし" && filter4[3] === "たか" ||
-                filter4[0] === "ずずめ" && filter4[1] === "つばめ" && filter4[2] === "たか" && filter4[3] === "わし" ||
-                filter4[0] === "すずめ" && filter4[1] === "わし" && filter4[2] === "つばめ" && filter4[3] === "たか" ||
-                filter4[0] === "すずめ" && filter4[1] === "わし" && filter4[2] === "たか" && filter4[3] === "つばめ" ||
-                filter4[0] === "すずめ" && filter4[1] === "たか" && filter4[2] === "わし" && filter4[3] === "つばめ" ||
-                filter4[0] === "すずめ" && filter4[1] === "たか" && filter4[2] === "つばめ" && filter4[3] === "わし" ||
-                
-                filter4[0] === "わし" && filter4[1] === "すずめ" && filter4[2] === "たか" && filter4[3] === "つばめ" ||
-                filter4[0] === "わし" && filter4[1] === "すずめ" && filter4[2] === "つばめ" && filter4[3] === "たか" ||
-                filter4[0] === "わし" && filter4[1] === "たか" && filter4[2] === "すずめ" && filter4[3] === "つばめ" ||
-                filter4[0] === "わし" && filter4[1] === "たか" && filter4[2] === "つばめ" && filter4[3] === "すずめ" ||
-                filter4[0] === "わし" && filter4[1] === "つばめ" && filter4[2] === "すずめ" && filter4[3] === "たか" ||
-                filter4[0] === "わし" && filter4[1] === "つばめ" && filter4[2] === "たか" && filter4[3] === "すずめ" ||
-                
-                filter4[0] === "たか" && filter4[1] === "すずめ" && filter4[2] === "わし" && filter4[3] === "つばめ" ||
-                filter4[0] === "たか" && filter4[1] === "すずめ" && filter4[2] === "つばめ" && filter4[3] === "わし" ||
-                filter4[0] === "たか" && filter4[1] === "わし" && filter4[2] === "わし" && filter4[3] === "すずめ" ||
-                filter4[0] === "たか" && filter4[1] === "わし" && filter4[2] === "すずめ" && filter4[3] === "わし" ||
-                filter4[0] === "たか" && filter4[1] === "つばめ" && filter4[2] === "わし" && filter4[3] === "すずめ" ||
-                filter4[0] === "たか" && filter4[1] === "つばめ" && filter4[2] === "すずめ" && filter4[3] === "わし") {
+                if (filter4.length === 4) {
                 alert("GAMECLEAR");
                 document.location.reload();
             }
@@ -259,7 +173,7 @@ function showSecond () {
             }
         }
 
-        if (event.keyCode === 13 && answer.value !== '' && quizNo === 5) {
+        if (event.keyCode === 13 && answer.value !== '' && quizNo === 4) {
             if (answer.value === "うお" || answer.value === "かに" || answer.value === "いて" || 
             answer.value === "おとめ") {
                 answer5.push(answer.value);
@@ -274,33 +188,7 @@ function showSecond () {
                     A[0].innerHTML = "・" + answer5[0] + "・" + answer5[1]  + "・" + answer5[2];
                 }
                 seA.play();
-                if (filter5[0] === "うお" && filter5[1] === "かに" && filter5[2] === "いて" && filter5[3] === "おとめ" ||
-                filter5[0] === "うお" && filter5[1] === "かに" && filter5[2] === "おとめ" && filter5[3] === "いて" ||
-                filter5[0] === "うお" && filter5[1] === "いて" && filter5[2] === "かに" && filter5[3] === "おとめ" ||
-                filter5[0] === "うお" && filter5[1] === "いて" && filter5[2] === "おとめ" && filter5[3] === "かに" ||
-                filter5[0] === "うお" && filter5[1] === "おとめ" && filter5[2] === "いて" && filter5[3] === "かに" ||
-                filter5[0] === "うお" && filter5[1] === "おとめ" && filter5[2] === "かに" && filter5[3] === "いて" ||
-                
-                filter5[0] === "かに" && filter5[1] === "うお" && filter5[2] === "いて" && filter5[3] === "おとめ" ||
-                filter5[0] === "かに" && filter5[1] === "うお" && filter5[2] === "おとめ" && filter5[3] === "いて" ||
-                filter5[0] === "かに" && filter5[1] === "いて" && filter5[2] === "うお" && filter5[3] === "おとめ" ||
-                filter5[0] === "かに" && filter5[1] === "いて" && filter5[2] === "おとめ" && filter5[3] === "うお" ||
-                filter5[0] === "かに" && filter5[1] === "おとめ" && filter5[2] === "うお" && filter5[3] === "いて" ||
-                filter5[0] === "かに" && filter5[1] === "おとめ" && filter5[2] === "いて" && filter5[3] === "うお" ||
-                
-                filter5[0] === "いて" && filter5[1] === "うお" && filter5[2] === "かに" && filter5[3] === "おとめ" ||
-                filter5[0] === "いて" && filter5[1] === "うお" && filter5[2] === "おとめ" && filter5[3] === "かに" ||
-                filter5[0] === "いて" && filter5[1] === "かに" && filter5[2] === "おとめ" && filter5[3] === "うお" ||
-                filter5[0] === "いて" && filter5[1] === "かに" && filter5[2] === "うお" && filter5[3] === "おとめ" ||
-                filter5[0] === "いて" && filter5[1] === "おとめ" && filter5[2] === "うお" && filter5[3] === "かに" ||
-                filter5[0] === "いて" && filter5[1] === "おとめ" && filter5[2] === "かに" && filter5[3] === "うお" ||
-                
-                filter5[0] === "おとめ" && filter5[1] === "うお" && filter5[2] === "かに" && filter5[3] === "いて" ||
-                filter5[0] === "おとめ" && filter5[1] === "うお" && filter5[2] === "いて" && filter5[3] === "かに" ||
-                filter5[0] === "おとめ" && filter5[1] === "かに" && filter5[2] === "うお" && filter5[3] === "いて" ||
-                filter5[0] === "おとめ" && filter5[1] === "かに" && filter5[2] === "いて" && filter5[3] === "うお" ||
-                filter5[0] === "おとめ" && filter5[1] === "いて" && filter5[2] === "うお" && filter5[3] === "かに" ||
-                filter5[0] === "おとめ" && filter5[1] === "いて" && filter5[2] === "かに" && filter5[3] === "うお") {
+                if (filter5.length === 4) {
                 alert("GAMECLEAR");
                 document.location.reload();
             }
